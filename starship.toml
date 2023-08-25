@@ -1,0 +1,63 @@
+format = """
+[░▒▓](#ffe808)\
+[  ](bg:#ffe808 fg:#303030)\
+[](bg:#ffce00 fg:#ffe808)\
+$directory\
+[](fg:#ffce00 bg:#ff9a00)\
+$git_branch\
+$git_status\
+[](fg:#ff9a00 bg:#ff5a00)\
+${custom.docker}\
+$rust\
+$golang\
+$php\
+$python\
+[](fg:#ff5a00 bg:#ff0000)\
+$time\
+[](fg:#ff0000 bg:#000000)\
+\n$character"""
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "🔌"
+discharging_symbol = "⚡"
+
+[custom.docker]
+symbol = "🐳"
+format = "[$symbol]($style)"
+style = "bg:#ff5a00 fg:#000000"
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+
+[directory]
+style = "fg:#000000 bg:#ffce00"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = "♪ "
+"Pictures" = " "
+
+[rust]
+symbol = ""
+style = "bg:#ff5a00"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:#ff5a00"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[python]
+symbol = ""
+style = "bg:#ff5a00"
+format = '[[ $symbol ($version) ](fg:#000000 bg:#ff5a00)]($style)'
+python_binary = 'python3'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#ff00000"
+format = '[[  $time ](fg:#000000 bg:#ff0000)]($style)'
